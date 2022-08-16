@@ -57,7 +57,7 @@ class ApplicationModule(private val mContext: Context) : ExportedModule(mContext
       Log.e(TAG, "Exception: ", e)
     }
 
-    constants["androidId"] = Settings.Secure.getString(mContext.contentResolver, Settings.Secure.ANDROID_ID)
+    constants["androidId"] = null
 
     return constants
   }
