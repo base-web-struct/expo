@@ -18,7 +18,14 @@ if (LegacyNativeProxy) {
 
   Object.keys(NativeProxy[exportedMethodsKey]).forEach((moduleName) => {
     // copy constants
-    NativeModulesProxy[moduleName] = NativeProxy[modulesConstantsKey][moduleName] || {};
+    if (moduleName === 'ExpoApplication') {
+      NativeModulesProxy[moduleName] = {
+        ...(NativeProxy[modulesConstantsKey][moduleName] || {}),
+        androidId: null
+      };
+    } else {
+      NativeModulesProxy[moduleName] = NativeProxy[modulesConstantsKey][moduleName] || {};
+    }
 
     // copy methods
     NativeProxy[exportedMethodsKey][moduleName].forEach((methodInfo) => {
