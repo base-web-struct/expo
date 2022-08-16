@@ -62,7 +62,7 @@ export const applicationId: string | null = ExpoApplication
  * @example `"dd96dec43fb81c97"`
  * @platform android
  */
-export const androidId: string | null = ExpoApplication ? ExpoApplication.androidId || null : null;
+export const androidId: string | null = null;
 
 // @needsAudit
 /**
